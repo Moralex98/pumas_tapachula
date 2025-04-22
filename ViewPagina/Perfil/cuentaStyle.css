@@ -1,0 +1,37 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .cuenta-container {
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .cuenta-container h1 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #1e1e2f;
+  }
+  
+  .info-box {
+    font-size: 1.1rem;
+    color: #333;
+    text-align: left;
+    padding: 1rem 2rem;
+    border-left: 5px solid #00b7a8;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+  }
+  
+  .info-box p {
+    margin: 1rem 0;
+  }
+  

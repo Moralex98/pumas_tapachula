@@ -1,0 +1,261 @@
+/* registrar_pagoStyle.css */
+
+
+/* Reset y estructura base */
+html, body {
+    height: 100%;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f7fa;
+    color: #1e1e2f;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    padding: 2rem;
+  }
+  
+  /* Contenedor dividido */
+  .page-content {
+    display: flex;
+    flex-direction: row;
+    background-color: #ffffff;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    width: 100%;
+    max-width: 1000px;
+    overflow: hidden;
+  }
+  
+  /* Lado izquierdo decorativo */
+  .info-panel {
+    background-color: #1e1e2f;
+    color: white;
+    padding: 3rem 2rem;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  /* Lado derecho con formulario */
+  .form-panel {
+    flex: 1;
+    padding: 3rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .form-panel h1 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #1e1e2f;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.3rem;
+  }
+  
+  label {
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+  
+  input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1.8px solid #ccc;
+    border-radius: 10px;
+    font-size: 1rem;
+    background-color: #fefefe;
+    transition: border-color 0.3s ease;
+  }
+  
+  input:focus {
+    border-color: #00b7a8;
+    outline: none;
+    background-color: #f9fdfd;
+  }
+  
+  button {
+    width: 100%;
+    padding: 0.9rem;
+    background-color: #1e1e2f;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #00b7a8;
+  }
+  
+  /* ======= NAVBAR + CORTINAS ======= */
+  header {
+    background-color: #1e1e2f;
+    color: #fff;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .logo img {
+    height: 90px;
+    width: auto;
+    display: block;
+  }
+  
+  .nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    position: relative;
+  }
+  
+  .nav-menu li {
+    position: relative;
+  }
+  
+  .nav-menu a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+    padding: 0.5rem 0;
+    display: inline-block;
+  }
+  
+  .nav-menu a:hover {
+    color: #00d1b2;
+  }
+  
+  /* Cortina centrada */
+  .dropdown-content {
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ffffff;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    min-width: 280px;
+    z-index: 1000;
+    border-top: 4px solid #00d1b2;
+  
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+  }
+  
+  .dropdown-content a {
+    display: block;
+    padding: 0.5rem 0;
+    color: #1e1e2f;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .dropdown-content a:hover {
+    color: #00d1b2;
+  }
+  
+  .dropdown.open .dropdown-content {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+  }
+  
+  /* Hover (solo PC) */
+  @media (hover: hover) and (pointer: fine) {
+    .dropdown:hover .dropdown-content {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+      pointer-events: auto;
+    }
+  }
+  
+  /* ========= RESPONSIVO ========= */
+  @media (max-width: 900px) {
+    .page-content {
+      flex-direction: column;
+    }
+  
+    .info-panel {
+      padding: 2rem;
+      font-size: 1.5rem;
+    }
+  
+    .form-panel {
+      padding: 2rem;
+    }
+  
+    header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .nav-menu {
+      flex-direction: column;
+      width: 100%;
+      margin-top: 1rem;
+    }
+  
+    .nav-menu li {
+      margin-bottom: 0.5rem;
+    }
+  
+    .dropdown-content {
+      left: 0;
+      transform: none;
+    }
+  
+    .dropdown.open .dropdown-content {
+      transform: none;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .info-panel {
+      font-size: 1.3rem;
+    }
+  
+    .form-panel h1 {
+      font-size: 1.5rem;
+    }
+  
+    button {
+      font-size: 0.95rem;
+    }
+  
+    .nav-menu {
+      gap: 1rem;
+    }
+  }
+  

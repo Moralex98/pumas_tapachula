@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Historial de Pagos</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="historialStyle.css" />
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="../images/logopumas.png" alt="Logo Pumas" />
+    </div>
+    
+    <nav>
+      <ul class="nav-menu">
+        <li><a href="../index.html">Inicio</a></li>
+        
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">Pagos</a>
+          <div class="dropdown-content">
+            <a href="registrar_pago.html">Registrar pago</a>
+            <a href="historial.html">Historial</a>
+            <a href="comprobantes.html">Comprobantes</a>
+          </div>
+        </li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">Niños</a>
+          <div class="dropdown-content">
+            <a href="../niños/listaNiños.html">Lista de niños</a>
+            <a href="../niños/registrarNiños.html">Registrar niño</a>
+            <a href="../niños/editarNiños.html">Editar datos</a>
+          </div>
+        </li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">Tutores</a>
+          <div class="dropdown-content">
+            <a href="../tutores/listaTutores.html">Lista de tutores</a>
+            <a href="../tutores/registrarTutores.html">Registrar tutor</a>
+            <a href="../tutores/editarTutores.html">Editar datos</a>
+          </div>
+        </li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">Perfil</a>
+          <div class="dropdown-content">
+            <a href="../perfil/cuenta.html">Mi cuenta</a>
+            <a href="../perfil/configuracion.html">Configuración</a>
+          </div>
+        </li>
+
+        <li><a href="#">Salir</a></li>
+      </ul>
+    </nav>    
+  </header>
+
+  <main>
+    <div class="container">
+      <h1>Historial de Pagos</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre del Niño</th>
+            <th>Monto</th>
+            <th>Fecha</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Juan Pérez</td>
+            <td>$250</td>
+            <td>2025-04-15</td>
+          </tr>
+          <tr>
+            <td>María López</td>
+            <td>$250</td>
+            <td>2025-03-15</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <!-- Script para activar dropdown en móviles -->
+  <script>
+    document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+      toggle.addEventListener('click', function (e) {
+        if (window.matchMedia('(hover: none)').matches) {
+          e.preventDefault();
+          document.querySelectorAll('.dropdown').forEach(drop => {
+            if (drop !== this.parentElement) {
+              drop.classList.remove('open');
+            }
+          });
+          this.parentElement.classList.toggle('open');
+        }
+      });
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!e.target.closest('.dropdown')) {
+        document.querySelectorAll('.dropdown').forEach(drop => {
+          drop.classList.remove('open');
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>

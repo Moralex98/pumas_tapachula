@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Editar Tutor</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="editarTutoresStyle.css" />
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="../images/logopumas.png" alt="Logo Pumas" />
+    </div>
+    
+    <nav>
+      <ul class="nav-menu">
+        <li><a href="../index.html">Inicio</a></li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">Pagos</a>
+          <div class="dropdown-content">
+            <a href="../Pagos/registrar_pago.html">Registrar pago</a>
+            <a href="../Pagos/historial.html">Historial</a>
+            <a href="../Pagos/comprobantes.html">Comprobantes</a>
+          </div>
+        </li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">Niños</a>
+          <div class="dropdown-content">
+            <a href="../Niños/listaNiños.html">Lista de niños</a>
+            <a href="../Niños/registrarNiños.html">Registrar niño</a>
+            <a href="../Niños/editarNiños.html">Editar datos</a>
+          </div>
+        </li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">Tutores</a>
+          <div class="dropdown-content">
+            <a href="listaTutores.html">Lista de tutores</a>
+            <a href="registrarTutores.html">Registrar tutor</a>
+            <a href="editarTutores.html">Editar datos</a>
+          </div>
+        </li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">Perfil</a>
+          <div class="dropdown-content">
+            <a href="../Perfil/cuenta.html">Mi cuenta</a>
+            <a href="../Perfil/configuracion.html">Configuración</a>
+          </div>
+        </li>
+
+        <li><a href="#">Salir</a></li>
+      </ul>
+    </nav>    
+  </header>
+
+  <main>
+    <div class="container">
+      <h1>Editar Tutor</h1>
+      <form>
+        <label for="nombre">Nombre Completo:</label>
+        <input type="text" id="nombre" name="nombre" required>
+
+        <label for="telefono">Teléfono:</label>
+        <input type="text" id="telefono" name="telefono" required>
+
+        <label for="correo">Correo Electrónico:</label>
+        <input type="email" id="correo" name="correo" required>
+
+        <label for="direccion">Dirección:</label>
+        <input type="text" id="direccion" name="direccion" required>
+
+        <button type="submit">Actualizar</button>
+      </form>
+    </div>
+  </main>
+
+  <script>
+    document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+      toggle.addEventListener('click', function (e) {
+        if (window.matchMedia('(hover: none)').matches) {
+          e.preventDefault();
+          document.querySelectorAll('.dropdown').forEach(drop => {
+            if (drop !== this.parentElement) drop.classList.remove('open');
+          });
+          this.parentElement.classList.toggle('open');
+        }
+      });
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!e.target.closest('.dropdown')) {
+        document.querySelectorAll('.dropdown').forEach(drop => drop.classList.remove('open'));
+      }
+    });
+  </script>
+
+</body>
+</html>

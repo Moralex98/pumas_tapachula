@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Registrar Pago</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="registrar_pagoStyle.css" />
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="../images/logopumas.png" alt="Logo Pumas" />
+    </div>
+    
+    <nav>
+      <ul class="nav-menu">
+        <li><a href="../index.html">Inicio</a></li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">Pagos</a>
+          <div class="dropdown-content">
+            <a href="registrar_pago.html">Registrar pago</a>
+            <a href="historial.html">Historial</a>
+            <a href="comprobantes.html">Comprobantes</a>
+          </div>
+        </li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">Niños</a>
+          <div class="dropdown-content">
+            <a href="#">Lista de niños</a>
+            <a href="#">Registrar niño</a>
+            <a href="#">Editar datos</a>
+          </div>
+        </li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">Tutores</a>
+          <div class="dropdown-content">
+            <a href="#">Lista de tutores</a>
+            <a href="#">Registrar tutor</a>
+            <a href="#">Editar datos</a>
+          </div>
+        </li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">Perfil</a>
+          <div class="dropdown-content">
+            <a href="#">Mi cuenta</a>
+            <a href="#">Configuración</a>
+          </div>
+        </li>
+
+        <li><a href="#">Salir</a></li>
+      </ul>
+    </nav>    
+  </header>
+
+  <main>
+    <div class="page-content">
+      <div class="info-panel">
+        ¡Apoya el deporte!
+      </div>
+      <div class="form-panel">
+        <h1>Registrar Pago</h1>
+        <form>
+          <label for="nombre">Nombre del Niño:</label>
+          <input type="text" id="nombre" name="nombre" required>
+  
+          <label for="monto">Monto:</label>
+          <input type="number" id="monto" name="monto" required>
+  
+          <label for="fecha">Fecha de Pago:</label>
+          <input type="date" id="fecha" name="fecha" required>
+  
+          <button type="submit">Registrar</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <!-- Script para activar menús tipo cortina -->
+  <script>
+    document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+      toggle.addEventListener('click', function (e) {
+        if (window.matchMedia('(hover: none)').matches) {
+          e.preventDefault();
+
+          document.querySelectorAll('.dropdown').forEach(drop => {
+            if (drop !== this.parentElement) {
+              drop.classList.remove('open');
+            }
+          });
+
+          this.parentElement.classList.toggle('open');
+        }
+      });
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!e.target.closest('.dropdown')) {
+        document.querySelectorAll('.dropdown').forEach(drop => {
+          drop.classList.remove('open');
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>

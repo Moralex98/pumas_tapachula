@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lista de Niños</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="listaNiñosStyle.css" />
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="../images/logopumas.png" alt="Logo Pumas" />
+    </div>
+
+    <nav>
+      <ul class="nav-menu">
+        <li><a href="../index.html">Inicio</a></li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">Pagos</a>
+          <div class="dropdown-content">
+            <a href="../Pagos/registrar_pago.html">Registrar pago</a>
+            <a href="../Pagos/historial.html">Historial</a>
+            <a href="../Pagos/comprobantes.html">Comprobantes</a>
+          </div>
+        </li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">Niños</a>
+          <div class="dropdown-content">
+            <a href="listaNiños.html">Lista de niños</a>
+            <a href="registrarNiños.html">Registrar niño</a>
+            <a href="editarNiños.html">Editar datos</a>
+          </div>
+        </li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">Tutores</a>
+          <div class="dropdown-content">
+            <a href="../Tutores/listaTutores.html">Lista de tutores</a>
+            <a href="../Tutores/registrarTutores.html">Registrar tutor</a>
+            <a href="../Tutores/editarTutores.html">Editar datos</a>
+          </div>
+        </li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">Perfil</a>
+          <div class="dropdown-content">
+            <a href="../Perfil/cuenta.html">Mi cuenta</a>
+            <a href="../Perfil/configuracion.html">Configuración</a>
+          </div>
+        </li>
+
+        <li><a href="#">Salir</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container">
+      <h1>Lista de Niños Registrados</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Edad</th>
+            <th>Sexo</th>
+            <th>Alergias</th>
+            <th>Categoría</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Carlos Martínez</td>
+            <td>9</td>
+            <td>Masculino</td>
+            <td>Ninguna</td>
+            <td>Sub 10</td>
+          </tr>
+          <tr>
+            <td>Valeria Gómez</td>
+            <td>11</td>
+            <td>Femenino</td>
+            <td>Polen</td>
+            <td>Sub 12</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <script>
+    document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+      toggle.addEventListener('click', function (e) {
+        if (window.matchMedia('(hover: none)').matches) {
+          e.preventDefault();
+          document.querySelectorAll('.dropdown').forEach(drop => {
+            if (drop !== this.parentElement) {
+              drop.classList.remove('open');
+            }
+          });
+          this.parentElement.classList.toggle('open');
+        }
+      });
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!e.target.closest('.dropdown')) {
+        document.querySelectorAll('.dropdown').forEach(drop => {
+          drop.classList.remove('open');
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>
